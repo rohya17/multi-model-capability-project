@@ -1,5 +1,7 @@
 from src.document_processor import document_processor
+from src.audio_processor import audio_processor
 from src.llm_manager import llm
+from src.schemas.audio_schema import CustomerCallSummary
 from src.schemas.document_schema import InvoiceDetails
 from src.schemas.llm_schema import TopicExplanation
 
@@ -51,11 +53,29 @@ def test_document_inference():
     print(f"Total Amount  : {invoice.total_amount}")
 
 def test_audio_inference():
-    pass
+
+    with open("prompts/audio_prompt.txt","r",encoding="utf-8") as file:
+        audio_prompt = file.read()
+
+    response = audio_processor.process_audio(
+        file_path="data/input/audio/sample_call.wav",
+        prompt=audio_prompt,
+        response_schema=CustomerCallSummary
+    )
+
+    print("\n" + "=" * 80)
+    print("AUDIO INFERENCE")
+    print("=" * 80)
+
+    print(f"Customer Name : {response.customer_name}")
+    print(f"Issue         : {response.issue_category}")
+    print(f"Summary       : {response.summary}")
+    print(f"Resolution    : {response.resolution}")
+    print(f"Sentiment     : {response.sentiment}")
 
 def main():
-    # test_structured_output()
-    # test_document_inference()
+    test_structured_output()
+    test_document_inference()
     test_audio_inference()    
 
 

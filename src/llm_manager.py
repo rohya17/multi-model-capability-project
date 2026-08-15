@@ -115,8 +115,8 @@ class LLMManager:
         usage = response.usage
 
         cost = cost_tracker.calculate_cost(
-            input_tokens=usage.input_tokens,
-            output_tokens=usage.output_tokens
+            input_tokens=usage.input_tokens if hasattr(usage,"input_tokens") else usage.prompt_tokens,
+            output_tokens=usage.output_tokens if hasattr(usage,"input_tokens") else usage.completion_tokens
         )
 
         logger.info(
