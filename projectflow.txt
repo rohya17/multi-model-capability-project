@@ -1,0 +1,37 @@
+1. Setup the project structure using template.py
+- setup venv -> uv venv --python 3.11 .venv
+- install requirements.txt -> pip install -r requirements.txt
+2. Work on below files to complete the setup:
+-----------------------------------------------------------------------------
+| Order | File               | Purpose                                      |
+| ----- | ------------------ | -------------------------------------------- |
+| 1     | `.env`             | API keys and secrets                         |
+| 2     | `.gitignore`       | Ignore virtual env, cache, logs, etc.        |
+| 3     | `requirements.txt` | Project dependencies                         |
+| 4     | `config.toml`      | Central configuration for the entire project |
+| 5     | `README.md`        | Setup instructions and project overview      |
+| 6     | `src/config.py`    | Read `.env` and `config.toml`                |
+-----------------------------------------------------------------------------
+
+3. src/retry_handler.py ->> src/cost_tracker.py ->> src/logger.py ->> rate_limiter.py ->> src/utils.py
+src/llm_manager.py ->> test-app.py
+
+4. Add following (after each line progress, run the smoke_test.py file):
+src/schemas/llm_schema.py
+
+openai not found error resolved with (use pip with local python)
+
+where.exe python
+where.exe pip
+python -c "import sys; print(sys.executable)"
+python -m pip --version
+python -m pip install -r requirements.txt
+
+data/input/documents/sample_invoice.pdf, src/schemas/document_schema.py, src/document_processor.py
+prompts/audio_prompt.txt, src/schemas/audio_schema.py, src/audio_processor.py
+
+5. Run generate_call_recordings.ipynb to generate call recordings
+
+6. Work on prototype ipynb pipeline (customer_interation_pipeline.ipynb)
+
+7. Update the src/utils.py and then add main.py
