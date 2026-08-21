@@ -1,0 +1,2 @@
+file_name,file_path,file_size_kb,status,invoice_number,invoice_date,vendor_name,total_amount
+sample_invoice.pdf,D:\LearnPython\multi-model-capability-project\data\input\documents\sample_invoice.pdf,16.36,Completed,INV-21045,2023-11-02,Acme Corporation,"$3,682.00"
